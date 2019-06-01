@@ -1,0 +1,6 @@
+<launch>
+  <rosparam file="$(find my_robot_control)/config/control.yaml" command="load"/>
+  <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" ns="my_robot_description" args="joint_state_controller diff_drive_controller"/>
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen" ns="/my_robot_description">
+  </node>
+</launch>
